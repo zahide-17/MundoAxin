@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 const Producto = mongoose.model('Producto')
 
-function crearArticulo(req, res, next) {
-  var articulo = new Producto(req.body)
-  articulo.save().then(articulo => {
-    res.status(201).send(articulo)
+function crearProducto(req, res, next) {
+  var producto = new Producto(req.body)
+  producto.save().then(producto => {
+    res.status(201).send(producto)
   }).catch(next)
 }
 
@@ -15,15 +15,15 @@ function crearArticulo(req, res, next) {
   res.send([tienda1, tienda2])
 }*/
 
-function obtenerArticulo(req, res, next) {
+function obtenerProducto(req, res, next) {
   if(req.params.id){
     Producto.findById(req.params.id)
-			.then(articulo => {
-	      res.send(articulo)
+			.then(producto => {
+	      res.send(producto)
 	    }).catch(next)
   } else {
-    Producto.find().then(articulo=>{
-      res.send(articulo)
+    Producto.find().then(producto=>{
+      res.send(producto)
     }).catch(next)
   }
 }
@@ -42,22 +42,20 @@ function obtenerArticulo(req, res, next) {
   res.send(tienda1)
 }*/
 
-function modificarArticulo(req, res, next) {
+function modificarProducto(req, res, next) {
   console.log("Articulo a modificar: " + req.params.id ) //req.param.id - Tienda en uri
 
-  Producto.findById(req.params.id).then(articulo => { //Busca la tienda que se recibe como parámetro.
+  Producto.findById(req.params.id).then(producto => { //Busca la tienda que se recibe como parámetro.
 
-    if (!articulo) { return res.sendStatus(401); }   //Si no se encuentra tienda, retorna estaus 401.---
+    if (!producto) { return res.sendStatus(401); }   //Si no se encuentra tienda, retorna estaus 401.---
 
-      if (typeof nuevaInfo.nombre !== 'undefined')
-        articulo.nombre = nuevaInfo.nombre
-      if (typeof nuevaInfo.descripcion !== 'undefined')
-        articulo.descripcion = nuevaInfo.descripcion
       if (typeof nuevaInfo.imagen !== 'undefined')
-        articulo.imagen = nuevaInfo.imagen
+        producto.imagen = nuevaInfo.imagen
+      if (typeof nuevaInfo.imagen !== 'undefined')
+        producto.imagen = nuevaInfo.imagen
       if (typeof nuevaInfo.precio !== 'undefined')
-        articulo.precio = nuevaInfo.precio
-      articulo.save().then(updatedArticulo => {
+        producto.precio = nuevaInfo.precio
+      producto.save().then(updatedArticulo => {
         res.status(201).json(updatedArticulo.publicData())
       }).catch(next)
     })
@@ -81,6 +79,6 @@ function eliminarArticulo(req, res) {
 module.exports = {
   crearArticulo,
   obtenerArticulo,
-  modificarArticulo,
+  modificarArticulo: modificarProducto,
   eliminarArticulo
 }
