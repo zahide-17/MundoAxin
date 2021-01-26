@@ -5,12 +5,14 @@ router.get('/', (req, res)=>{
 });
 
 router.use('/usuarios', require('./usuarios'));
-router.use('/mascotas', require('./mascotas'));
-router.use('/solicitudes', require('./solicitudes'));
+//router.use('/mascotas', require('./mascotas'));
+//router.use('/solicitudes', require('./solicitudes'));
 router.use('/tiendas', require('./tienda'));
 router.use('/sucursal', require('./sucursal'));
 router.use('/categoria', require('./categoria'));
 router.use('/articulo', require('./articulo'));
+router.use('/producto', require('./producto'));
+router.use('/listaDeseos', require('./listaDeseos'));
 
 
 module.exports = router;

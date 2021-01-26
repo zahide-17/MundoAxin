@@ -18,4 +18,4 @@ ProductoSchema.methods.publicData = function(){
   };
 };
 
-mongoose.model('Producto', ProdutoSchema)
+mongoose.model('Producto', ProductoSchema)

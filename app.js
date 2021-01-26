@@ -27,7 +27,7 @@ mongoose.connect(
 );
 
 //mongoose.set("debug", true);
-//mongodb+srv://zadd:91MwDidJNYYPiNkN@cluster0.olrfq.mongodb.net/mundoAxinDEV?retryWrites=true&w=majority
+//mongodb+srv://zadd:91MwDidJNYYPiNkN@cluster0.olrfq.mongodb.net/mundoAxin?retryWrites=true&w=majority
 
 const errorhandler = require('errorhandler')
     if (!isProduction) {
@@ -47,12 +47,14 @@ const errorhandler = require('errorhandler')
     }
 require("./models/Usuario");
 require('./config/passport');
-require('./models/Mascota');
-require('./models/Solicitud');
+//require('./models/Mascota');
+//require('./models/Solicitud');
 require('./models/Tienda');
 require('./models/Sucursal');
 require('./models/Categoria');
 require('./models/Articulo');
+require('./models/Producto');
+require('./models/ListaDeseos');
 
 
 // Aquí se importarán los modelos Mascota y Solicitud cuando estén listos
